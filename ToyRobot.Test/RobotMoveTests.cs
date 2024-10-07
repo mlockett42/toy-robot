@@ -1,4 +1,5 @@
-﻿using ToyRobot.Library;
+﻿using Moq;
+using ToyRobot.Library;
 using ToyRobot.Library.Exceptions;
 
 namespace ToyRobot.Test
@@ -13,7 +14,7 @@ namespace ToyRobot.Test
         void MoveRobot(Direction direction, int expectedX, int expectedY)
         {
             // Verify moving the robot in the correct direction does the right thing.
-            var board = new Board();
+            var board = new Board(Mock.Of<IConsoleWriter>());
             board.Place(2, 2, direction);
             board.Move();
 
@@ -28,7 +29,7 @@ namespace ToyRobot.Test
         [InlineData(0, 2, Direction.WEST)]
         void AttemptToMoveOffBoard(int initialX, int initialY, Direction direction)
         {
-            var board = new Board();
+            var board = new Board(Mock.Of<IConsoleWriter>());
             board.Place(initialX, initialY, direction);
             // Verify to throws an exception if it would move off board
             Assert.Throws<MoveOffBoardException>(board.Move);

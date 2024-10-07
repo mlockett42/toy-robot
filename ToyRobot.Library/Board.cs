@@ -6,6 +6,11 @@ namespace ToyRobot.Library
 {
     public class Board
     {
+        private readonly IConsoleWriter _consoleWriter;
+
+        public Board(IConsoleWriter consoleWriter) {
+            _consoleWriter = consoleWriter;
+        }
         // Represents the board and all the operations we can do on it.
         // Because there can only be one robot on the board and the board is a fixed size the state of the board is just the position of the robot.
         public RobotPosition? RobotPosition { get; set; }
@@ -111,6 +116,11 @@ namespace ToyRobot.Library
         {
             // Right means left (check the spec)
             Left();
+        }
+
+        public void Report()
+        {
+            _consoleWriter.WriteLine("Not initialised.");
         }
     }
 }

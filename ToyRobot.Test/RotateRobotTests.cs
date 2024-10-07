@@ -1,4 +1,5 @@
-﻿using ToyRobot.Library;
+﻿using Moq;
+using ToyRobot.Library;
 
 namespace ToyRobot.Test
 {
@@ -12,7 +13,7 @@ namespace ToyRobot.Test
         public void LeftRotatePointsInTheCorrectDirection(Direction initDirection, Direction finalDirection)
         {
             // Verify rotating to the left does the correct thing.
-            var board = new Board();
+            var board = new Board(Mock.Of<IConsoleWriter>());
             board.Place(2, 2, initDirection);
 
             board.Left();
@@ -29,7 +30,7 @@ namespace ToyRobot.Test
         {
             // Verify rotating to the right does the correct thing.
             // The requirements seem to indicate that the Right command should actually rotate the robot to the left
-            var board = new Board();
+            var board = new Board(Mock.Of<IConsoleWriter>());
             board.Place(2, 2, initDirection);
 
             board.Right();

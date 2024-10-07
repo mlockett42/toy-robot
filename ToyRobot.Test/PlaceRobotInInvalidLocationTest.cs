@@ -1,4 +1,5 @@
-﻿using ToyRobot.Library;
+﻿using Moq;
+using ToyRobot.Library;
 using ToyRobot.Library.Exceptions;
 
 namespace ToyRobot.Test
@@ -13,7 +14,7 @@ namespace ToyRobot.Test
         void PlaceRobotOnBoardInValidLocation(int initialX, int initialY)
         {
             // Verify placing the robot on the board in an invalid location throws an exception.
-            var board = new Board();
+            var board = new Board(Mock.Of<IConsoleWriter>());
 
             Assert.Throws<InvalidBoardLocationException>(() => board.Place(initialX, initialY, Direction.NORTH));
 

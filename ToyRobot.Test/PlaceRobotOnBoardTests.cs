@@ -1,4 +1,5 @@
-﻿using ToyRobot.Library;
+﻿using Moq;
+using ToyRobot.Library;
 using ToyRobot.Library.Exceptions;
 
 namespace ToyRobot.Test
@@ -9,7 +10,7 @@ namespace ToyRobot.Test
         void PlaceRobotOnBoard()
         {
             // Verify placing the robot on the board does the correct thing.
-            var board = new Board();
+            var board = new Board(Mock.Of<IConsoleWriter>());
 
             board.Place(0, 2, Direction.NORTH);
 
@@ -24,7 +25,7 @@ namespace ToyRobot.Test
         void PlaceRobotOnBoardTwice()
         {
             // Verify placing a second robot on the board causes an error. An the original robot is still in the correct place.
-            var board = new Board();
+            var board = new Board(Mock.Of<IConsoleWriter>());
 
             board.Place(0, 2, Direction.NORTH);
 
