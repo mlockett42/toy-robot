@@ -9,7 +9,7 @@ namespace ToyRobot.Test
         void BoardIsUnitialisedByDefault()
         {
             var board = new Board();
-            Assert.False(board.IsIntialised());
+            Assert.False(board.IsIntialised);
         }
 
         [Fact]
