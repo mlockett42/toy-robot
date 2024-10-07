@@ -4,7 +4,15 @@ using ToyRobot.Library.Exceptions;
 
 namespace ToyRobot.Library
 {
-    public class Board
+    public interface IBoard
+    {
+        void Left();
+        void Right();
+        void Move();
+        void Place(int x, int y, Direction direction);
+    }
+
+    public class Board : IBoard
     {
         private readonly IConsoleWriter _consoleWriter;
 
