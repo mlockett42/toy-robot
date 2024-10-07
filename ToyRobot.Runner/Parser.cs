@@ -28,6 +28,7 @@ namespace ToyRobot.Runner
         public void Parse(string command)
         {
             var upperCaseCommand = command.ToUpper();
+            var upperCaseCommandTrimmed = upperCaseCommand.Trim();
             if (upperCaseCommand.StartsWith("PLACE "))
             {
                 var commandArgsString = upperCaseCommand.Substring(6);
@@ -41,22 +42,25 @@ namespace ToyRobot.Runner
                     .WithParsed(ExecutePlaceCommand)
                     .WithNotParsed(HandleParseError);
             }
-            var upperCaseCommandTrimmed = upperCaseCommand.Trim();
-            if (upperCaseCommandTrimmed == "LEFT")
+            else if (upperCaseCommandTrimmed == "LEFT")
             {
                 _board.Left();
             }
-            if (upperCaseCommandTrimmed == "RIGHT")
+            else if (upperCaseCommandTrimmed == "RIGHT")
             {
                 _board.Right();
             }
-            if (upperCaseCommandTrimmed == "MOVE")
+            else if (upperCaseCommandTrimmed == "MOVE")
             {
                 _board.Move();
             }
-            if (upperCaseCommandTrimmed == "REPORT")
+            else if (upperCaseCommandTrimmed == "REPORT")
             {
                 _board.Report();
+            }
+            else
+            {
+                _consoleWriter.WriteLine($"Unknown command {upperCaseCommand}");
             }
         }
 

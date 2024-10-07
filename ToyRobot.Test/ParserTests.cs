@@ -69,5 +69,17 @@ namespace ToyRobot.Test
 
             mockBoard.Verify(b => b.Report(), Times.Once);
         }
+
+        [Fact]
+        void ParserInvalidCommand()
+        {
+            var mockConsoleWriter = new Mock<IConsoleWriter>();
+
+            var parser = new Parser(Mock.Of <IBoard>(), mockConsoleWriter.Object);
+
+            parser.Parse("STUFF");
+
+            mockConsoleWriter.Verify(b => b.WriteLine(It.Is<string>(s => s == "Unknown command STUFF")), Times.Once);
+        }
     }
 }
