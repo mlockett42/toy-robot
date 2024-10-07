@@ -12,7 +12,18 @@ namespace ToyRobot.Library
 
         public void Left()
         {
-            throw new BoardUnitialisedException();
+            if (!IsIntialised)
+            {
+                throw new BoardUnitialisedException();
+            }
+            RobotPosition!.Direction = RobotPosition.Direction switch
+            {
+                Direction.NORTH => Direction.WEST,
+                Direction.EAST => Direction.NORTH,
+                Direction.SOUTH => Direction.EAST,
+                Direction.WEST => Direction.SOUTH,
+                _ => throw new InvalidOperationException($"Not expected robot direction value: {RobotPosition.Direction}"),
+            };
         }
 
         public void Move()
@@ -38,7 +49,18 @@ namespace ToyRobot.Library
 
         public void Right()
         {
-            throw new BoardUnitialisedException();
+            if (!IsIntialised)
+            {
+                throw new BoardUnitialisedException();
+            }
+            RobotPosition!.Direction = RobotPosition.Direction switch
+            {
+                Direction.NORTH => Direction.EAST,
+                Direction.EAST => Direction.SOUTH,
+                Direction.SOUTH => Direction.WEST,
+                Direction.WEST => Direction.NORTH,
+                _ => throw new InvalidOperationException($"Not expected robot direction value: {RobotPosition.Direction}"),
+            };
         }
     }
 }
