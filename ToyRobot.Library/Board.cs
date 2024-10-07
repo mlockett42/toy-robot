@@ -22,6 +22,11 @@ namespace ToyRobot.Library
 
         public void Place(int x, int y, Direction direction)
         {
+            if (IsIntialised)
+            {
+                throw new BoardAlreadyInitialisedException("Robot is already placed on the board.");
+            }
+
             RobotPosition = new RobotPosition
             {
                 X = x,
