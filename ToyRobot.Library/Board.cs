@@ -9,6 +9,7 @@ namespace ToyRobot.Library
         void Left();
         void Right();
         void Move();
+        void Report();
         void Place(int x, int y, Direction direction);
     }
 

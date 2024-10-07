@@ -41,6 +41,23 @@ namespace ToyRobot.Runner
                     .WithParsed(ExecutePlaceCommand)
                     .WithNotParsed(HandleParseError);
             }
+            var upperCaseCommandTrimmed = upperCaseCommand.Trim();
+            if (upperCaseCommandTrimmed == "LEFT")
+            {
+                _board.Left();
+            }
+            if (upperCaseCommandTrimmed == "RIGHT")
+            {
+                _board.Right();
+            }
+            if (upperCaseCommandTrimmed == "MOVE")
+            {
+                _board.Move();
+            }
+            if (upperCaseCommandTrimmed == "REPORT")
+            {
+                _board.Report();
+            }
         }
 
         private void ExecutePlaceCommand(PlaceOptions options)
