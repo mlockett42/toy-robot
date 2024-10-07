@@ -28,10 +28,7 @@ namespace ToyRobot.Library
 
         public void Move()
         {
-            if (!IsIntialised)
-            {
-                throw new BoardUnitialisedException();
-            }
+            ValidateMove();
             switch (RobotPosition!.Direction)
             {
                 case Direction.NORTH:
@@ -45,6 +42,43 @@ namespace ToyRobot.Library
                     break;
                 case Direction.WEST:
                     RobotPosition!.X -= 1;
+                    break;
+                default:
+                    throw new InvalidOperationException($"Unexpected robot direction value: {RobotPosition.Direction}");
+            }
+        }
+
+        private void ValidateMove()
+        {
+            if (!IsIntialised)
+            {
+                throw new BoardUnitialisedException();
+            }
+            switch (RobotPosition!.Direction)
+            {
+                case Direction.NORTH:
+                    if (RobotPosition!.Y <= 0)
+                    {
+                        throw new MoveOffBoardException();
+                    }
+                    break;
+                case Direction.EAST:
+                    if (RobotPosition!.X >= 4)
+                    {
+                        throw new MoveOffBoardException();
+                    }
+                    break;
+                case Direction.SOUTH:
+                    if (RobotPosition!.Y >= 4)
+                    {
+                        throw new MoveOffBoardException();
+                    }
+                    break;
+                case Direction.WEST:
+                    if (RobotPosition!.X <= 0)
+                    {
+                        throw new MoveOffBoardException();
+                    }
                     break;
                 default:
                     throw new InvalidOperationException($"Unexpected robot direction value: {RobotPosition.Direction}");
