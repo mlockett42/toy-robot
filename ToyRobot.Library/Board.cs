@@ -6,6 +6,8 @@ namespace ToyRobot.Library
 {
     public class Board
     {
+        // Represents the board and all the operations we can do on it.
+        // Because there can only be one robot on the board and the board is a fixed size the state of the board is just the position of the robot.
         public RobotPosition? RobotPosition { get; set; }
 
         public bool IsIntialised { get; set; }

@@ -12,6 +12,7 @@ namespace ToyRobot.Test
         [InlineData(Direction.EAST, 3, 2)]
         void MoveRobot(Direction direction, int expectedX, int expectedY)
         {
+            // Verify moving the robot in the correct direction does the right thing.
             var board = new Board();
             board.Place(2, 2, direction);
             board.Move();

@@ -8,6 +8,7 @@ namespace ToyRobot.Test
         [Fact]
         void PlaceRobotOnBoard()
         {
+            // Verify placing the robot on the board does the correct thing.
             var board = new Board();
 
             board.Place(0, 2, Direction.NORTH);
@@ -22,6 +23,7 @@ namespace ToyRobot.Test
         [Fact]
         void PlaceRobotOnBoardTwice()
         {
+            // Verify placing a second robot on the board causes an error. An the original robot is still in the correct place.
             var board = new Board();
 
             board.Place(0, 2, Direction.NORTH);

@@ -3,7 +3,8 @@ using ToyRobot.Library.Exceptions;
 
 namespace ToyRobot.Test
 {
-    public class BoardTests
+    public class UninitialisedBoardTests
+    // Test uninitialised board is handled correctly
     {
         [Fact]
         void BoardIsUnitialisedByDefault()

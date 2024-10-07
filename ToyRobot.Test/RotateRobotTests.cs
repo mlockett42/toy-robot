@@ -11,6 +11,7 @@ namespace ToyRobot.Test
         [InlineData(Direction.EAST, Direction.NORTH)]
         public void LeftRotatePointsInTheCorrectDirection(Direction initDirection, Direction finalDirection)
         {
+            // Verify rotating to the left does the correct thing.
             var board = new Board();
             board.Place(2, 2, initDirection);
 
@@ -26,6 +27,7 @@ namespace ToyRobot.Test
         [InlineData(Direction.EAST, Direction.SOUTH)]
         public void RightRotatePointsInTheCorrectDirection(Direction initDirection, Direction finalDirection)
         {
+            // Verify rotating to the right does the correct thing.
             var board = new Board();
             board.Place(2, 2, initDirection);
 

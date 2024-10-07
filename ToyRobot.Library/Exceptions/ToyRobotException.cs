@@ -2,6 +2,7 @@
 {
     public class ToyRobotException : Exception
     {
+        // A base exception for the ToyRobot program, so we can wasily catch our internally generated exceptions
         public ToyRobotException()
         {
         }
