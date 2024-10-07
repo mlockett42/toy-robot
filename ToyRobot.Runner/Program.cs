@@ -4,7 +4,16 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            string input;
+            Console.WriteLine("Enter a command (type 'exit' to quit):");
+            while (true)
+            {
+                input = ReadLine.Read("> ");
+                if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
+                    break;
+
+                Console.WriteLine($"You entered: {input}");
+            }
         }
     }
 }
