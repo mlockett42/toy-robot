@@ -49,13 +49,13 @@ namespace ToyRobot.Library
             switch (RobotPosition!.Direction)
             {
                 case Direction.NORTH:
-                    RobotPosition!.Y -= 1;
+                    RobotPosition!.Y += 1;
                     break;
                 case Direction.EAST:
                     RobotPosition!.X += 1;
                     break;
                 case Direction.SOUTH:
-                    RobotPosition!.Y += 1;
+                    RobotPosition!.Y -= 1;
                     break;
                 case Direction.WEST:
                     RobotPosition!.X -= 1;
@@ -74,7 +74,7 @@ namespace ToyRobot.Library
             switch (RobotPosition!.Direction)
             {
                 case Direction.NORTH:
-                    if (RobotPosition!.Y <= 0)
+                    if (RobotPosition!.Y >= 4)
                     {
                         throw new MoveOffBoardException();
                     }
@@ -86,7 +86,7 @@ namespace ToyRobot.Library
                     }
                     break;
                 case Direction.SOUTH:
-                    if (RobotPosition!.Y >= 4)
+                    if (RobotPosition!.Y <= 0)
                     {
                         throw new MoveOffBoardException();
                     }

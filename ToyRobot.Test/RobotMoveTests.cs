@@ -7,9 +7,9 @@ namespace ToyRobot.Test
     public class RobotMoveTests
     {
         [Theory]
-        [InlineData(Direction.NORTH, 2, 1)]
+        [InlineData(Direction.NORTH, 2, 3)]
         [InlineData(Direction.WEST, 1, 2)]
-        [InlineData(Direction.SOUTH, 2, 3)]
+        [InlineData(Direction.SOUTH, 2, 1)]
         [InlineData(Direction.EAST, 3, 2)]
         void MoveRobot(Direction direction, int expectedX, int expectedY)
         {
@@ -23,9 +23,9 @@ namespace ToyRobot.Test
         }
 
         [Theory]
-        [InlineData(2, 0, Direction.NORTH)]
+        [InlineData(2, 4, Direction.NORTH)]
         [InlineData(4, 0, Direction.EAST)]
-        [InlineData(2, 4, Direction.SOUTH)]
+        [InlineData(2, 0, Direction.SOUTH)]
         [InlineData(0, 2, Direction.WEST)]
         void AttemptToMoveOffBoard(int initialX, int initialY, Direction direction)
         {
