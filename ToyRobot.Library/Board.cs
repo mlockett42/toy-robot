@@ -93,6 +93,10 @@ namespace ToyRobot.Library
             {
                 throw new BoardAlreadyInitialisedException("Robot is already placed on the board.");
             }
+            if (x < 0 || x > 4 || y < 0 || y > 4)
+            {
+                throw new InvalidBoardLocationException();
+            }
 
             RobotPosition = new RobotPosition
             {
