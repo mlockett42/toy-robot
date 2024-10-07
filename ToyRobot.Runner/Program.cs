@@ -5,6 +5,9 @@
         static void Main(string[] args)
         {
             string input;
+
+            var container = new ToyRobotContainer();
+            var parser = container.Resolve();
             Console.WriteLine("Enter a command (type 'exit' to quit):");
             while (true)
             {
@@ -12,7 +15,8 @@
                 if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
                     break;
 
-                Console.WriteLine($"You entered: {input}");
+                //Console.WriteLine($"You entered: {input}");
+                parser.Value.Parse(input);
             }
         }
     }
