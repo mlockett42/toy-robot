@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToyRobot.Library\ToyRobot.Library.csproj" />
+    <ProjectReference Include="..\ToyRobot.Runner\ToyRobot.Runner.csproj" />
   </ItemGroup>
 
   <ItemGroup>
