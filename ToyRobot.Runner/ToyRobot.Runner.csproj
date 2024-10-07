@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="ReadLine" Version="2.0.1" />
+    <PackageReference Include="StrongInject" Version="1.4.4" />
   </ItemGroup>
 
   <ItemGroup>

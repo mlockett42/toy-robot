@@ -15,7 +15,12 @@ namespace ToyRobot.Runner
         public Direction F { get; set; }
     }
 
-    public class Parser
+    public interface IParser
+    {
+        void Parse(string command);
+    }
+
+    public class Parser : IParser
     {
         private readonly IBoard _board;
         private readonly IConsoleWriter _consoleWriter;
