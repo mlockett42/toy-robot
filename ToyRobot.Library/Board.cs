@@ -105,18 +105,8 @@ namespace ToyRobot.Library
 
         public void Right()
         {
-            if (!IsIntialised)
-            {
-                throw new BoardUnitialisedException();
-            }
-            RobotPosition!.Direction = RobotPosition.Direction switch
-            {
-                Direction.NORTH => Direction.EAST,
-                Direction.EAST => Direction.SOUTH,
-                Direction.SOUTH => Direction.WEST,
-                Direction.WEST => Direction.NORTH,
-                _ => throw new InvalidOperationException($"Unexpected robot direction value: {RobotPosition.Direction}"),
-            };
+            // Right means left (check the spec)
+            Left();
         }
     }
 }

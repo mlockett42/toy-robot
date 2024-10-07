@@ -21,13 +21,14 @@ namespace ToyRobot.Test
         }
 
         [Theory]
-        [InlineData(Direction.NORTH, Direction.EAST)]
-        [InlineData(Direction.WEST, Direction.NORTH)]
-        [InlineData(Direction.SOUTH, Direction.WEST)]
-        [InlineData(Direction.EAST, Direction.SOUTH)]
+        [InlineData(Direction.NORTH, Direction.WEST)]
+        [InlineData(Direction.WEST, Direction.SOUTH)]
+        [InlineData(Direction.SOUTH, Direction.EAST)]
+        [InlineData(Direction.EAST, Direction.NORTH)]
         public void RightRotatePointsInTheCorrectDirection(Direction initDirection, Direction finalDirection)
         {
             // Verify rotating to the right does the correct thing.
+            // The requirements seem to indicate that the Right command should actually rotate the robot to the left
             var board = new Board();
             board.Place(2, 2, initDirection);
 
