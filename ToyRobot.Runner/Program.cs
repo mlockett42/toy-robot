@@ -1,4 +1,6 @@
-﻿namespace ToyRobot.Runner
+﻿using ToyRobot.Library.Exceptions;
+
+namespace ToyRobot.Runner
 {
     internal class Program
     {
@@ -15,8 +17,14 @@
                 if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
                     break;
 
-                //Console.WriteLine($"You entered: {input}");
-                parser.Value.Parse(input);
+                try
+                {
+                    parser.Value.Parse(input);
+                }
+                catch (ToyRobotException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }
