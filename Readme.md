@@ -28,3 +28,5 @@ Also the spec includes some examples which overturn my assumptions (I had zero a
 
 I used Strong Inject as a dependency inject framework because that is my go to choice in Dotnet land because of performance. I used a Dependency Injection framework to make writing unit tests viable.
 
+I ran dotnet format on the code. I am suspicous I didn't format everything as it only found one issue.
+

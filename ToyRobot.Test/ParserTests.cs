@@ -75,7 +75,7 @@ namespace ToyRobot.Test
         {
             var mockConsoleWriter = new Mock<IConsoleWriter>();
 
-            var parser = new Parser(Mock.Of <IBoard>(), mockConsoleWriter.Object);
+            var parser = new Parser(Mock.Of<IBoard>(), mockConsoleWriter.Object);
 
             parser.Parse("STUFF");
 
