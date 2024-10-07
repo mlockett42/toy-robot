@@ -8,7 +8,8 @@ namespace ToyRobot.Library
     {
         private readonly IConsoleWriter _consoleWriter;
 
-        public Board(IConsoleWriter consoleWriter) {
+        public Board(IConsoleWriter consoleWriter)
+        {
             _consoleWriter = consoleWriter;
         }
         // Represents the board and all the operations we can do on it.
@@ -120,7 +121,12 @@ namespace ToyRobot.Library
 
         public void Report()
         {
-            _consoleWriter.WriteLine("Not initialised.");
+            if (!IsIntialised)
+            {
+                _consoleWriter.WriteLine("Not initialised.");
+                return;
+            }
+            _consoleWriter.WriteLine($"{RobotPosition!.X},{RobotPosition!.Y},{RobotPosition!.Direction}");
         }
     }
 }
